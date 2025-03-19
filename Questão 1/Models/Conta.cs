@@ -1,14 +1,15 @@
+namespace ContaBancaria.Models;
 class Conta
 {
     public int NumeroConta { get; protected set; }
     public string Titular { get; protected set; }
     public double Saldo { get; protected set; }
 
-    public Conta(int numeroConta, string titular, double saldo)
+    public Conta(int numeroConta, string titular)
     {
         SetNumeroConta(numeroConta);
         SetTitular(titular);
-        SetSaldo(saldo);
+        SetSaldo(1000);
     }
 
     public void SetNumeroConta(int numeroConta)
@@ -47,7 +48,7 @@ class Conta
             Saldo += deposito;
         }
     }
-    private void Sacar(double saque)
+    public void Sacar(double saque)
     {
         if (saque < 0)
         {

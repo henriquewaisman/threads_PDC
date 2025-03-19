@@ -6,9 +6,6 @@ class Program
     {
         Conta c = new Conta(1, "Henrique");
         contas.Add(c);
-
-
-
     }
 
     static void AGastadora()
