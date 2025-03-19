@@ -10,11 +10,11 @@ B) A classe Conta (recurso compartilhado) deverá ter pelo menos:
   - Quando necessário, implemente também algumas regras básicas de integridade (número de conta negativos, etc.).
   - Finalmente, implemente os principais métodos que vão manipular o saldo da conta: deposito e saque. Inicie o saldo (recurso compartilhado) da conta depositando uma quantia de R$ 1.000,00.
 
-- DICA: Faça um esboço de um diagrama inicial de classes para lhe ajudar a pensar melhor antes de ir diretamente para o código. O diagrama ajuda você a visualizar quantas classes precisará e como elas se relacionam.
+**DICA**: Faça um esboço de um diagrama inicial de classes para lhe ajudar a pensar melhor antes de ir diretamente para o código. O diagrama ajuda você a visualizar quantas classes precisará e como elas se relacionam.
 
-- IMPORTANTE: Sempre que uma thread movimentar fundos da sua conta, o sistema deve informar não apenas qual thread efetuou a operação (saque ou depósito), mas, principalmente, qual é o seu saldo atual final (após o saque). Isso permitirá que você acompanhe a situação financeira em tempo real.
+**IMPORTANTE**: Sempre que uma thread movimentar fundos da sua conta, o sistema deve informar não apenas qual thread efetuou a operação (saque ou depósito), mas, principalmente, qual é o seu saldo atual final (após o saque). Isso permitirá que você acompanhe a situação financeira em tempo real.
 
-- LEMBRE-SE: Nesta aplicação, não defina prioridades (todos devem ter as mesmas chances). Além disso, não permita que haja corrupção de dados (ou seja, cada thread deve conseguir retirar sua quantia sem ser interrompido por outro thread materialista). Use synchronized ou outro modelo, por exemplo.
+**LEMBRE-SE**: Nesta aplicação, não defina prioridades (todos devem ter as mesmas chances). Além disso, não permita que haja corrupção de dados (ou seja, cada thread deve conseguir retirar sua quantia sem ser interrompido por outro thread materialista). Use synchronized ou outro modelo, por exemplo.
 
 C) Quando a conta estiver com saldo zero, todas as threads deverão ser colocados em estado de espera. Ao ser colocado em espera, cada thread deverá imprimir a quantidade de saques efetuados e o valor total retirado da conta. Execute e veja o resultado
 
