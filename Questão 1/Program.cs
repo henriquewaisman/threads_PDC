@@ -17,20 +17,20 @@ class Program
         Thread.Sleep(3000);
     }
 
-    // public void AEsperta()
-    // {
-    //     if (Saldo >= 50)
-    //     {
-    //         Saldo -= 50;
-    //     }
-    //     Thread.Sleep(6000);
-    // }
-    // public void AEconomica()
-    // {
-    //     if (Saldo >= 5)
-    //     {
-    //         Saldo -= 5;
-    //     }
-    //     Thread.Sleep(12000);
-    // }
+    public void AEsperta()
+    {
+        if (contas[0].Saldo >= 50)
+        {
+            contas[0].Sacar(50);
+        }
+        Thread.Sleep(6000);
+    }
+    public void AEconomica()
+    {
+        if (contas[0].Saldo >= 5)
+        {
+            contas[0].Sacar(5);
+        }
+        Thread.Sleep(12000);
+    }
 }
