@@ -1,36 +1,70 @@
-using ContaBancaria.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 class Program
 {
-    static List<Conta> contas = new List<Conta>();
+    static Conta conta = new Conta(1, "Henrique");
+
     static void Main(string[] args)
     {
-        Conta c = new Conta(1, "Henrique");
-        contas.Add(c);
+        Thread gastadoraThread = new Thread(AGastadora) { Name = "AGastadora" };
+        Thread espertaThread = new Thread(AEsperta) { Name = "AEsperta" };
+        Thread economicaThread = new Thread(AEconomica) { Name = "AEconomica" };
+        Thread patrocinadoraThread = new Thread(APatrocinadora) { Name = "APatrocinadora" };
+
+        gastadoraThread.Start();
+        espertaThread.Start();
+        economicaThread.Start();
+        patrocinadoraThread.Start();
     }
 
     static void AGastadora()
     {
-        if (contas[0].Saldo >= 10)
+        int totalSaques = 0;
+        double totalRetirado = 0;
+        while (true)
         {
-            contas[0].Sacar(10);
+            conta.Sacar(10, Thread.CurrentThread.Name, ref totalSaques, ref totalRetirado);
+            Thread.Sleep(3000);
         }
-        Thread.Sleep(3000);
     }
 
-    public void AEsperta()
+    static void AEsperta()
     {
-        if (contas[0].Saldo >= 50)
+        int totalSaques = 0;
+        double totalRetirado = 0;
+        while (true)
         {
-            contas[0].Sacar(50);
+            conta.Sacar(50, Thread.CurrentThread.Name, ref totalSaques, ref totalRetirado);
+            Thread.Sleep(6000);
         }
-        Thread.Sleep(6000);
     }
-    public void AEconomica()
+
+    static void AEconomica()
     {
-        if (contas[0].Saldo >= 5)
+        int totalSaques = 0;
+        double totalRetirado = 0;
+        while (true)
         {
-            contas[0].Sacar(5);
+            conta.Sacar(5, Thread.CurrentThread.Name, ref totalSaques, ref totalRetirado);
+            Thread.Sleep(12000);
         }
-        Thread.Sleep(12000);
     }
+
+    static void APatrocinadora()
+    {
+        while (true)
+        {
+            lock (conta)
+            {
+                if (conta.Saldo == 0)
+                {
+                    conta.Depositar(100);
+                    Monitor.PulseAll(conta); // Aqui, "conta" precisa ser o mesmo objeto do lock
+                }
+            }
+            Thread.Sleep(5000); // Dá um tempo antes de verificar de novo
+        }
+    }
+
 }

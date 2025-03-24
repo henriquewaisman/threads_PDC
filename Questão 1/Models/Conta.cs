@@ -1,62 +1,46 @@
-namespace ContaBancaria.Models;
 class Conta
 {
-    public int NumeroConta { get; protected set; }
-    public string Titular { get; protected set; }
-    public double Saldo { get; protected set; }
+    public int NumeroConta { get; private set; }
+    public string Titular { get; private set; }
+    public double Saldo { get; private set; }
+    private readonly object _lock = new object();
 
     public Conta(int numeroConta, string titular)
     {
-        SetNumeroConta(numeroConta);
-        SetTitular(titular);
-        SetSaldo(1000);
-    }
+        if (numeroConta < 0) throw new ArgumentException("Número da conta inválido");
+        if (string.IsNullOrWhiteSpace(titular) || titular.Length > 255) throw new ArgumentException("Nome de titular inválido");
 
-    public void SetNumeroConta(int numeroConta)
-    {
-        if (numeroConta < 0)
-        {
-            throw new Exception("Número da conta inválido");
-        }
         NumeroConta = numeroConta;
-    }
-    public void SetTitular(string titular)
-    {
-        if (string.IsNullOrWhiteSpace(titular) && titular.Length > 255)
-        {
-            throw new Exception("Nome de titular inválido");
-        }
         Titular = titular;
-    }
-    public void SetSaldo(double saldo)
-    {
-        if (saldo < 0)
-        {
-            throw new Exception("O saldo da conta é inválido");
-        }
-        Saldo = saldo;
+        Saldo = 1000;
     }
 
-    public void Depositar(double deposito)
+    public bool Sacar(double valor, string threadName, ref int totalSaques, ref double totalRetirado)
     {
-        if (deposito < 0)
+        lock (_lock)
         {
-            Console.WriteLine("Valor de depósito inválido");
-        }
-        else
-        {
-            Saldo += deposito;
+            while (Saldo < valor)
+            {
+                Console.WriteLine($"{threadName} está esperando... Saldo insuficiente!");
+                Monitor.Wait(_lock); // Aguarda até que um depósito seja realizado
+            }
+
+            Saldo -= valor;
+            totalSaques++;
+            totalRetirado += valor;
+
+            Console.WriteLine($"{threadName} sacou R$ {valor}. Saldo restante: R$ {Saldo}");
+            return true;
         }
     }
-    public void Sacar(double saque)
+    public void Depositar(double valor)
     {
-        if (saque < 0)
+        lock (_lock)
         {
-            Console.WriteLine("Valor de saque Inválido");
-        }
-        else
-        {
-            Saldo -= saque;
+            Saldo += valor;
+            Console.WriteLine($"APatrocinadora depositou R$ {valor}. Novo saldo: R$ {Saldo}");
+            Monitor.PulseAll(_lock); // Notifica todas as threads que estavam esperando
         }
     }
+
 }
