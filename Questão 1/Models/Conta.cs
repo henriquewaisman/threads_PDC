@@ -22,7 +22,7 @@ class Conta
             while (Saldo < valor)
             {
                 Console.WriteLine($"{threadName} está esperando... Saldo insuficiente!");
-                Monitor.Wait(_lock); // Aguarda até que um depósito seja realizado
+                Monitor.Wait(_lock);
             }
 
             Saldo -= valor;
@@ -39,7 +39,7 @@ class Conta
         {
             Saldo += valor;
             Console.WriteLine($"APatrocinadora depositou R$ {valor}. Novo saldo: R$ {Saldo}");
-            Monitor.PulseAll(_lock); // Notifica todas as threads que estavam esperando
+            Monitor.PulseAll(_lock);
         }
     }
 

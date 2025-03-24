@@ -60,10 +60,10 @@ class Program
                 if (conta.Saldo == 0)
                 {
                     conta.Depositar(100);
-                    Monitor.PulseAll(conta); // Aqui, "conta" precisa ser o mesmo objeto do lock
+                    Monitor.PulseAll(conta);
                 }
             }
-            Thread.Sleep(5000); // Dá um tempo antes de verificar de novo
+            Thread.Sleep(5000);
         }
     }
 
