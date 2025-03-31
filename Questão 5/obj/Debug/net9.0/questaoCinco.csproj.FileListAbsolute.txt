@@ -1,0 +1,29 @@
+C:\dev\questaoCinco\bin\Debug\net9.0\questaoCinco.exe
+C:\dev\questaoCinco\bin\Debug\net9.0\questaoCinco.deps.json
+C:\dev\questaoCinco\bin\Debug\net9.0\questaoCinco.runtimeconfig.json
+C:\dev\questaoCinco\bin\Debug\net9.0\questaoCinco.dll
+C:\dev\questaoCinco\bin\Debug\net9.0\questaoCinco.pdb
+C:\dev\questaoCinco\obj\Debug\net9.0\questaoCinco.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\questaoCinco\obj\Debug\net9.0\questaoCinco.AssemblyInfoInputs.cache
+C:\dev\questaoCinco\obj\Debug\net9.0\questaoCinco.AssemblyInfo.cs
+C:\dev\questaoCinco\obj\Debug\net9.0\questaoCinco.csproj.CoreCompileInputs.cache
+C:\dev\questaoCinco\obj\Debug\net9.0\questaoCinco.dll
+C:\dev\questaoCinco\obj\Debug\net9.0\refint\questaoCinco.dll
+C:\dev\questaoCinco\obj\Debug\net9.0\questaoCinco.pdb
+C:\dev\questaoCinco\obj\Debug\net9.0\questaoCinco.genruntimeconfig.cache
+C:\dev\questaoCinco\obj\Debug\net9.0\ref\questaoCinco.dll
+C:\dev\threads_PDC\Questão 5\bin\Debug\net9.0\questaoCinco.exe
+C:\dev\threads_PDC\Questão 5\bin\Debug\net9.0\questaoCinco.deps.json
+C:\dev\threads_PDC\Questão 5\bin\Debug\net9.0\questaoCinco.runtimeconfig.json
+C:\dev\threads_PDC\Questão 5\bin\Debug\net9.0\questaoCinco.dll
+C:\dev\threads_PDC\Questão 5\bin\Debug\net9.0\questaoCinco.pdb
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\questaoCinco.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\questaoCinco.AssemblyInfoInputs.cache
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\questaoCinco.AssemblyInfo.cs
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\questaoCinco.csproj.CoreCompileInputs.cache
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\questaoCinco.sourcelink.json
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\questaoCinco.dll
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\refint\questaoCinco.dll
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\questaoCinco.pdb
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\questaoCinco.genruntimeconfig.cache
+C:\dev\threads_PDC\Questão 5\obj\Debug\net9.0\ref\questaoCinco.dll
